@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    	<link rel="shortcut icon" type="image/png" th:href="@{/images/favicon.png}"/>
+
+    <title>Register | MOCK PROJECT</title>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+   
+    
+</head>
+
+
+<body style="margin: 0px;">
+	<!-- Header start-->
+	<header>
+	    <a class="logo" th:href="@{/}" href="#">MOCK  PROJECT</a>
+	    <div class="h-right">
+	       <a class="nav-link" th:href="@{/login}">Sign in</a>
+	    </div>
+	</header>
+	<!-- Header end-->
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <div th:if="${param.success}">
+							<div class="alert alert-info">You've successfully registered !</div>
+						</div>
+                        <form method="POST" class="register-form" id="register-form" action="#" th:object="${user}" th:action="@{/register}">
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input th:field="*{firstName}" id="first-name" type="text" name="first-name" placeholder="First name" required autofocus="autofocus"/>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input th:field="*{lastName}" id="last-name" type="text" name="last-name" placeholder="Last name" required autofocus="autofocus"/>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input th:field="*{email}" type="text" id="email" name="email" placeholder="Email" required autofocus="autofocus"/>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input th:field="*{password}" type="password" placeholder="Password" id="password" name="password" required autofocus="autofocus"/>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <label for="re-pass"><i class="zmdi zmdi-phone"></i></label>
+                                <input th:field="*{phone}" type="text" id="phone" name="phone" placeholder="Phone" required autofocus="autofocus"/>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
+                        <a th:href="@{/login}"href="#" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

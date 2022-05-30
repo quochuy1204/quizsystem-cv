@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+  <meta name="author" content="GeeksLabs">
+  <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+  <link rel="shortcut icon" type="image/png" th:href="@{/images/favicon.png}"/>
+  <title>Quiz | MOCK PROJECT</title>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/bootstrap-theme.css}">
+  <link rel="stylesheet" th:href="@{/css/elegant-icons-style.css}">
+  <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+  <link rel="stylesheet" th:href="@{/fullcalendar/fullcalendar/bootstrap-fullcalendar.css}">
+  <link rel="stylesheet" th:href="@{/fullcalendar/fullcalendar/fullcalendar.css}">
+  <link rel="stylesheet" th:href="@{/jquery-easy-pie-chart/jquery.easy-pie-chart.css}">
+  <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+  <link rel="stylesheet" th:href="@{/css/jquery-jvectormap-1.2.2.css}">
+  <link rel="stylesheet" th:href="@{/css/fullcalendar.css}">
+  <link rel="stylesheet" th:href="@{/css/widgets.css}">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/admin.css}">
+  <link rel="stylesheet" th:href="@{/css/admin-responsive.css}">
+  <link rel="stylesheet" th:href="@{/css/xcharts.min.css}">
+  <link rel="stylesheet" th:href="@{/css/jquery-ui-1.10.4.min.css}">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  
+</head>
+
+
+<body style="color: #797979 !important;background: #eeeeee;">
+  <!-- container section start -->
+  <section id="container" class="">
+
+
+    <header class="header dark-bg">
+      <div class="toggle-nav">
+        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+      </div>
+
+      <!--logo start-->
+      <a th:href="@{/}" class="logo"style="text-decoration: none;">MOCK <span class="lite">PROJECT</span></a>
+      <!--logo end-->
+
+      <div class="nav search-row" id="top_menu">
+        <!--  search form start -->
+        <ul class="nav top-menu">
+          <li>
+            <form class="navbar-form">
+              <input class="form-control" placeholder="Search" type="text">
+            </form>
+          </li>
+        </ul>
+        <!--  search form end -->
+      </div>
+
+      <div class="top-nav notification-row">
+        <!-- notificatoin dropdown start-->
+        <ul class="nav pull-right top-menu">
+
+      
+
+          <!-- user login dropdown start-->
+          <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#"style="text-decoration: none;">
+                             <span class="profile-ava">
+                               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                            </span>
+                        </a>
+            <ul class="dropdown-menu extended logout">
+              <div class="log-arrow-up"></div>
+              <li class="eborder-top">
+                <a href="#"><i class="icon_profile"></i> My Profile</a>
+              </li>
+              <li>
+                <a th:href="@{/logout}"><i class="icon_key_alt"></i> Log Out</a>
+              </li>
+             
+            </ul>
+          </li>
+          <!-- user login dropdown end -->
+        </ul>
+        <!-- notificatoin dropdown end-->
+      </div>
+    </header>
+    <!--header end-->
+
+    <!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu">
+          <li class="active">
+            <a class="" th:href="@{/quiz}">
+                          <i class="icon_house_alt"></i>
+                          <span>Quiz</span>
+                      </a>
+          </li>
+           <li >
+            <a th:href="@{/user/result}" class="">
+                <i class="fa fa-gavel" aria-hidden="true"></i>
+                <span>Result</span>
+            </a>  
+          </li>
+          
+         
+       <li>
+            <a th:href="@{/contact}">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <span>Contact</span>
+    		</a>
+         
+          </li>
+
+     
+
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+    <!--sidebar end-->
+
+   <section id="main-content">
+      <section class="wrapper">
+        <!--overview start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-question" aria-hidden="true"></i> Quiz</h3>
+            <ol class="breadcrumb"style="padding: 8px 15px;">
+              <li><i class="fa fa-home"></i><a th:href="@{/quiz}">Home</a></li>
+              <li><i class="fa fa-question" aria-hidden="true"></i>Quiz</li>
+            </ol>
+          </div>
+        </div>
+
+
+        <div class="row">
+         
+         
+		<form action="#" th:action="@{/user/question/submit}" method="POST" th:object="${questionList}">
+		<input name="course_id" th:value="${course.id}" type="hidden">
+			<div th:each="question, isState : ${questionList.questions}">
+				<div style="display: flex; justify-content: space-between; margin-top: 0px;">
+					<div style="display: flex; width: 1000px;">
+						<i class="zmdi zmdi-help"
+							style="padding-right: 16px; color: #333; font-size: 20px;"></i>
+						<div>
+							<span th:text="${isState.index + 1} + ')'"></span><b><span
+								th:text="${question.title}" style="margin: 5px;"></span></b>
+								
+							<div class="form-check">
+								<input required th:name="|questions[${isState.index}].chose|"  th:value="1" class="form-check-input" type="radio"
+									 id="optionA"> <label
+									th:text="${question.optionA}" class="form-check-label"
+									for="optionA"></label>
+							</div>
+
+							<div class="form-check">
+								<input required th:name="|questions[${isState.index}].chose|"  th:value="2" class="form-check-input" type="radio"
+									 id="optionB"> <label
+									th:text="${question.optionB}" class="form-check-label"
+									for="optionB"></label>
+							</div>
+							
+							<div class="form-check">
+								<input required th:name="|questions[${isState.index}].chose|"  th:value="3" class="form-check-input" type="radio"
+									 id="optionC"> <label
+									th:text="${question.optionC}" class="form-check-label"
+									for="optionC"></label>
+							</div>
+							
+							<div class="form-check">
+								<input required th:name="|questions[${isState.index}].chose|"  th:value="4" class="form-check-input" type="radio"
+									 id="optionD"> <label
+									th:text="${question.optionD}" class="form-check-label"
+									for="optionD"></label>
+							</div>
+							
+							<input th:name="|questions[${isState.index}].id|" th:value="${question.id}" type="hidden" >
+							<input th:name="|questions[${isState.index}].title|" th:value="${question.title}" type="hidden" >
+							<input th:name="|questions[${isState.index}].answer|" th:value="${question.answer}" type="hidden" >
+							
+						</div>
+					</div>
+				</div>
+				<hr>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+          <!--/.col-->
+
+        </div>
+        <!--/.row-->
+
+
+      
+        <!-- Today status end -->
+
+
+      </section>
+    </section>
+    <!--main content end-->
+  </section>
+  <!-- container section start -->
+
+  <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+  <script type="text/javascript" th:src="@{/js/jquery-ui-1.10.4.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/jquery-1.8.3.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/jquery-ui-1.9.2.custom.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/jquery.scrollTo.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/jquery.nicescroll.js}"></script>
+  <script type="text/javascript" th:src="@{/jquery-knob/js/jquery.knob.js}"></script>
+  <script type="text/javascript" th:src="@{/js/jquery.sparkline.js}"></script>
+  <script type="text/javascript" th:src="@{/jquery-easy-pie-chart/jquery.easy-pie-chart.js}"></script>
+  <script type="text/javascript" th:src="@{/js/owl.carousel.js}"></script>
+  <script type="text/javascript" th:src="@{/js/fullcalendar.min.js}"></script>
+  <script type="text/javascript" th:src="@{/fullcalendar/fullcalendar/fullcalendar.js}"></script>
+  <script type="text/javascript" th:src="@{/js/calendar-custom.js}"></script>
+  <script type="text/javascript" th:src="@{/js/jquery.rateit.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/jquery.customSelect.min.js}"></script>
+  <script type="text/javascript" th:src="@{/chart-master/Chart.js}"></script>
+  <script type="text/javascript" th:src="@{/js/scripts.js}"></script>
+  <script type="text/javascript" th:src="@{/js/sparkline-chart.js}"></script>
+  <script type="text/javascript" th:src="@{/js/easy-pie-chart.js}"></script>
+  <script type="text/javascript" th:src="@{/js/jquery-jvectormap-1.2.2.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/xcharts.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/jquery.autosize.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/jquery.placeholder.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/gdp-data.js}"></script>
+  <script type="text/javascript" th:src="@{/js/morris.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/sparklines.js}"></script>
+  <script type="text/javascript" th:src="@{/js/charts.js}"></script>
+  <script type="text/javascript" th:src="@{/js/jquery.slimscroll.min.js}"></script>
+
+  
+    <script>
+      //knob
+      $(function() {
+        $(".knob").knob({
+          'draw': function() {
+            $(this.i).val(this.cv + '%')
+          }
+        })
+      });
+
+      //carousel
+      $(document).ready(function() {
+        $("#owl-slider").owlCarousel({
+          navigation: true,
+          slideSpeed: 300,
+          paginationSpeed: 400,
+          singleItem: true
+
+        });
+      });
+
+      //custom select box
+
+      $(function() {
+        $('select.styled').customSelect();
+      });
+
+      /* ---------- Map ---------- */
+      $(function() {
+        $('#map').vectorMap({
+          map: 'world_mill_en',
+          series: {
+            regions: [{
+              values: gdpData,
+              scale: ['#000', '#000'],
+              normalizeFunction: 'polynomial'
+            }]
+          },
+          backgroundColor: '#eef3f7',
+          onLabelShow: function(e, el, code) {
+            el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+          }
+        });
+      });
+    </script>
+
+</body>
+
+</html>
